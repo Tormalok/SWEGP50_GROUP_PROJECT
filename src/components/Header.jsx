@@ -4,19 +4,32 @@ import './styles/style.css';
 
 const Header = () => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to='/'>Home</Link>
-        </li>
-        <li>
-          <Link to='/login'>Login</Link>
-        </li>
-        <li>
-          <Link to='/about'>About</Link>
-        </li>
-      </ul>
-    </nav>
+    <div className='header'>
+      <div className='logo'>
+        <Link to='/'>
+          <span className='logo-ink'>ARC</span>VAN
+        </Link>
+      </div>
+      <div className='nav'>
+        <ul className='nav-links'>
+          <li className='nav-link'>
+            <Link to='/'>Home</Link>
+          </li>
+          <li className='nav-link'>
+            <Link to='/login'>Login</Link>
+          </li>
+          <li className='nav-link'>
+            <Link to='/products'>Products</Link>
+          </li>
+          <li className='nav-link'>
+            <Link to='/about'>About</Link>
+          </li>
+          <li className='nav-link'>
+            <Link to='/cart'>Cart</Link>
+          </li>
+        </ul>
+      </div>
+    </div>
   );
 };
 
