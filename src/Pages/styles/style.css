@@ -27,8 +27,74 @@ body {
   width: 45rem;
   border: 1px solid #e1e4e8;
   background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 5px;
+  text-align: center;
+}
+
+.forms-section .title {
+  margin-top: 50px;
+}
+
+.form-main {
+  /* background-color: cadetblue; */
+  height: auto;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.form-main input,
+button,
+.btn,
+.btn-links {
+  width: 300px;
+  height: 45px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #c2c8d0;
+  border-radius: 5px;
+}
+
+.form-main input {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+.btn {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #1d7ddd;
+  align-content: center;
+}
+
+.form-main .option {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+
+.form-main div span {
+  color: #1d7ddd;
+}
+
+.btn-links {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #1d7ddd;
+  align-content: center;
 }
