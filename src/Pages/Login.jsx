@@ -34,8 +34,8 @@ const Login = () => {
                 required
               />
             </div>
-            {/* <button type='submit'>Sign In</button> */}
-            <div className='btn'>Sign in</div>
+            <button type='submit'>Sign In</button>
+            {/* <div className='btn'>Sign in</div> */}
 
             <div className='option'>
               <p>

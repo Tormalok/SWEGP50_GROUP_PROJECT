@@ -36,7 +36,6 @@ body {
 }
 
 .form-main {
-  /* background-color: cadetblue; */
   height: auto;
   width: 400px;
   margin-left: auto;
@@ -69,14 +68,26 @@ button,
   box-sizing: border-box;
 }
 
-.btn {
+.form-main input:focus {
+  border: 1px solid #1e73c8;
+  outline: none;
+}
+
+/* .form-main input:hover {
+  border: 1px solid #1e73c8;
+  outline: none;
+} */
+
+button {
   font-family: 'Open Sans', sans-serif;
   font-style: normal;
   border: none;
-  border-radius: 5px;
   color: #fff;
   background-color: #1d7ddd;
-  align-content: center;
+}
+
+button:hover {
+  background-color: #1e73c8;
 }
 
 .form-main .option {
