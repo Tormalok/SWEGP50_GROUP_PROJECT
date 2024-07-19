@@ -6,10 +6,10 @@ import './styles/style.css';
 const Login = () => {
   return (
     <>
-      <div className='login-main'>
+      <div className='login-container'>
         <Header />
 
-        <div className='forms-section'>
+        <div className='form-section'>
           <h1 className='title'>Sign in</h1>
           <form className='form-main'>
             <div>
@@ -43,9 +43,18 @@ const Login = () => {
                 <span> Sign up</span>
               </p>
             </div>
-            <div className='btn-links'>Sign in with Google</div>
-            <div className='btn-links'>Sign in with Microsoft</div>
-            <div className='btn-links'>Sign in with Apple</div>
+            <div className='btn-links'>
+              <img src='public\form_logos\google.svg' />
+              <p>Sign in with Google</p>
+            </div>
+            <div className='btn-links'>
+              <img src='public\form_logos\facebook.svg' />
+              <p>Sign in with Facebook</p>
+            </div>
+            <div className='btn-links'>
+              <img src='public\form_logos\apple.svg' />
+              <p>Sign in with Apple</p>
+            </div>
           </form>
         </div>
       </div>
