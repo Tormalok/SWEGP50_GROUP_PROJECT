@@ -102,19 +102,24 @@ button:hover {
 .btn-links {
   font-family: 'Open Sans', sans-serif;
   font-style: normal;
-  border: 1px solid #000;
+  border: 1px solid #c2c8d0;
   border-radius: 5px;
   color: #000;
   background-color: #fff;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
 }
 
 .btn-links img {
   height: 22px;
   width: 22px;
   margin-right: 10px;
+  margin-left: 15px;
+}
+
+.btn-links p {
+  font-size: 14px;
 }
 
 /* Home Page */
@@ -122,4 +127,13 @@ button:hover {
   font-family: 'Open Sans', sans-serif;
   font-style: normal;
   height: 900px;
+}
+
+.homepage-main .prod-container {
+  border: 1px solid #e1e4e8;
+  background-color: #fff;
+  height: 95%;
+  width: 95%;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }

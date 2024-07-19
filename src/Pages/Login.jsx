@@ -44,16 +44,16 @@ const Login = () => {
               </p>
             </div>
             <div className='btn-links'>
-              <img src='public\form_logos\google.svg' />
-              <p>Sign in with Google</p>
+              <img src='\form_logos\google.svg' />
+              <p>Continue with Google</p>
             </div>
             <div className='btn-links'>
-              <img src='public\form_logos\facebook.svg' />
-              <p>Sign in with Facebook</p>
+              <img src='\form_logos\microsoft.svg' />
+              <p>Continue with Microsoft Account</p>
             </div>
             <div className='btn-links'>
-              <img src='public\form_logos\apple.svg' />
-              <p>Sign in with Apple</p>
+              <img src='\form_logos\apple.svg' />
+              <p>Continue with Apple</p>
             </div>
           </form>
         </div>
