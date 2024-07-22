@@ -10,14 +10,13 @@ body {
 }
 
 /* Login Page */
-.login-container,
-.homepage-main {
-  background-color: #f6f8fa;
+.login-container {
+  background-color: #e7eaed;
   width: 100%;
-  /* height: calc(100vh - 60px); */
-  height: 700px;
+  height: auto;
   padding-top: 60px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -25,14 +24,16 @@ body {
 .form-section {
   font-family: 'Open Sans', sans-serif;
   font-style: normal;
-  height: 40rem;
+  height: auto;
   width: 45rem;
   border: 1px solid #e1e4e8;
   background-color: #fff;
+  margin-top: 50px;
+  margin-bottom: 40px;
   border-radius: 5px;
   text-align: center;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
 }
 
 .form-section .title {
@@ -90,7 +91,7 @@ button:hover {
 }
 
 .form-main .option {
-  margin-top: 30px;
+  margin-top: 40px;
   margin-bottom: 30px;
   font-size: 14px;
 }
@@ -109,31 +110,49 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: start;
+  /* margin-bottom: 10px; */
+  text-decoration: none;
 }
 
 .btn-links img {
-  height: 22px;
-  width: 22px;
+  height: 21px;
+  width: 21px;
   margin-right: 10px;
   margin-left: 15px;
 }
 
 .btn-links p {
-  font-size: 14px;
+  font-size: 15px;
+}
+
+.btn-links:hover {
+  background-color: #f1f1f1;
+}
+
+.form-main .btn-links:last-child {
+  margin-bottom: 70px;
 }
 
 /* Home Page */
-.homepage-main {
+.homepage-container {
+  background-color: #e7eaed;
+  width: 100%;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   font-family: 'Open Sans', sans-serif;
   font-style: normal;
-  height: 900px;
 }
 
-.homepage-main .prod-container {
-  border: 1px solid #e1e4e8;
+.homepage-container .prod-container {
+  border: 1px solid #f1f3f5;
   background-color: #fff;
-  height: 95%;
-  width: 95%;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  width: 75%;
+  height: 900px;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.1);
 }

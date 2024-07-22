@@ -15,7 +15,7 @@ const Login = () => {
             <div>
               {/* <label htmlFor='email'>Email:</label> */}
               <input
-                placeholder='Email'
+                placeholder='Email*'
                 type='email'
                 id='email'
                 // value={email}
@@ -26,7 +26,7 @@ const Login = () => {
             <div>
               {/* <label htmlFor='password'>Password:</label> */}
               <input
-                placeholder='Password'
+                placeholder='Password*'
                 type='password'
                 id='password'
                 // value={password}
@@ -43,18 +43,18 @@ const Login = () => {
                 <span> Sign up</span>
               </p>
             </div>
-            <div className='btn-links'>
+            <a href='#' className='btn-links'>
               <img src='\form_logos\google.svg' />
               <p>Continue with Google</p>
-            </div>
-            <div className='btn-links'>
+            </a>
+            <a href='#' className='btn-links'>
               <img src='\form_logos\microsoft.svg' />
               <p>Continue with Microsoft Account</p>
-            </div>
-            <div className='btn-links'>
+            </a>
+            <a href='#' className='btn-links'>
               <img src='\form_logos\apple.svg' />
               <p>Continue with Apple</p>
-            </div>
+            </a>
           </form>
         </div>
       </div>

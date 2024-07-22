@@ -1,0 +1,2 @@
+homepage_main_bg_color = #D5D3DA
+products_section_bg_color = #DEDCE2
