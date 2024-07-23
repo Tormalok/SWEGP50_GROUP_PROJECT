@@ -3,3 +3,8 @@ products_section_bg_color = #DEDCE2
 
 bottom = #3A5696
 top = #506FAB
+
+default = #1e90ff
+
+background-color: #2d83f6;
+background-color: #1d6dbd;
