@@ -74,7 +74,7 @@ button,
 }
 
 .form-main input:focus {
-  border: 1px solid #1e73c8;
+  border: 2px solid #2d83f6;
   outline: none;
 }
 
@@ -83,11 +83,11 @@ button {
   font-style: normal;
   border: none;
   color: #fff;
-  background-color: #1d7ddd;
+  background-color: #2d83f6;
 }
 
 button:hover {
-  background-color: #1e73c8;
+  background-color: #1d6dbd;
 }
 
 .form-main .option {
@@ -97,7 +97,7 @@ button:hover {
 }
 
 .form-main div span {
-  color: #1d7ddd;
+  color: #2d83f6;
 }
 
 .btn-links {
