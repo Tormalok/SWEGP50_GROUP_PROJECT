@@ -10,6 +10,22 @@ const Login = () => {
     setIsSignUp(!isSignUp);
   };
 
+  // Form submission handler
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    // Get form values
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+
+    // Handle form submission logic here
+    console.log('Email:', email);
+    console.log('Password:', password);
+
+    // For now, just showing a basic alert
+    alert('Form submitted!');
+  };
+
   return (
     <>
       <div className='login-container'>
@@ -17,16 +33,25 @@ const Login = () => {
 
         <div className='form-section'>
           <h1 className='title'>{isSignUp ? 'Sign up' : 'Sign in'}</h1>
-          <form className='form-main'>
+          <form className='form-main' onSubmit={handleSubmit}>
             <div>
-              <input placeholder='Email*' type='email' id='email' required />
+              <input
+                placeholder='Email*'
+                type='email'
+                id='email'
+                name='email'
+                required
+                aria-label='Email address'
+              />
             </div>
             <div>
               <input
                 placeholder='Password*'
                 type='password'
                 id='password'
+                name='password'
                 required
+                aria-label='Password'
               />
             </div>
             <button type='submit'>{isSignUp ? 'Sign Up' : 'Sign In'}</button>
@@ -42,15 +67,15 @@ const Login = () => {
               </p>
             </div>
             <a href='#' className='btn-links'>
-              <img src='\form_logos\google.svg' alt='Google logo' />
+              <img src='/form_logos/google.svg' alt='Google logo' />
               <p>Continue with Google</p>
             </a>
             <a href='#' className='btn-links'>
-              <img src='\form_logos\microsoft.svg' alt='Microsoft logo' />
+              <img src='/form_logos/microsoft.svg' alt='Microsoft logo' />
               <p>Continue with Microsoft Account</p>
             </a>
             <a href='#' className='btn-links'>
-              <img src='\form_logos\apple.svg' alt='Apple logo' />
+              <img src='/form_logos/apple.svg' alt='Apple logo' />
               <p>Continue with Apple</p>
             </a>
           </form>
