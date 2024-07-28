@@ -78,6 +78,11 @@ button,
   outline: none;
 }
 
+.form-main .toggle-link {
+  color: #2d83f6;
+  cursor: pointer;
+}
+
 button {
   font-family: 'Open Sans', sans-serif;
   font-style: normal;
