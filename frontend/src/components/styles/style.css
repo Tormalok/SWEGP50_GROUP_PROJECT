@@ -106,20 +106,19 @@ Logo Component
   color: #ffcc33;
 }
 
-/* 
-Account component
-*/
+/* Account component */
 .account-container {
+  position: relative; /* Required for absolute positioning of dropdown */
   display: flex;
   align-items: center;
   cursor: pointer;
   color: #fff;
-  margin-left: 20px;
-  transition: color 0.3s ease;
+  margin-left: 20px; /* Adjust this margin as needed */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .account-container:hover {
-  color: #d3d3d3;
+  color: #d3d3d3; /* Light grey color when hovered */
 }
 
 .account-container .material-icons {
@@ -135,20 +134,44 @@ Account component
   opacity: 1;
 }
 
-/* 
-Cart component
-*/
+.account-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  color: #000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 4px;
+  z-index: 10;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+.account-dropdown a {
+  text-decoration: none;
+  color: #2d83f6;
+  padding: 8px 12px;
+  transition: background-color 0.2s ease;
+}
+
+.account-dropdown a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Cart component */
 .cart-container {
   display: flex;
   align-items: center;
   cursor: pointer;
   color: #fff;
-  margin-left: 20px;
-  transition: color 0.3s ease;
+  margin-left: 20px; /* Adjust this margin as needed */
+  transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 .cart-container:hover {
-  color: #d3d3d3;
+  color: #d3d3d3; /* Light grey color when hovered */
 }
 
 .cart-container .material-icons {

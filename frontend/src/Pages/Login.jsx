@@ -1,24 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { useLocation } from 'react-router-dom';
 import './styles/style.css';
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get('signup')) {
+      setIsSignUp(true);
+    }
+  }, [location]);
 
   const toggleSignUp = () => {
     setIsSignUp(!isSignUp);
   };
 
-  // Form submission handler
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    // Get form values
     const email = event.target.email.value;
     const password = event.target.password.value;
-
-    // Determine the URL and request options based on the form type
     const url = isSignUp ? '/api/users' : '/api/users/login';
     const method = 'POST';
     const headers = {
@@ -29,13 +33,11 @@ const Login = () => {
     try {
       const response = await fetch(url, { method, headers, body });
       const data = await response.json();
-
       if (response.ok) {
         alert(
           data.message ||
             (isSignUp ? 'Sign up successful!' : 'Sign in successful!')
         );
-        // Optionally, handle successful login/signup, e.g., redirect to another page
       } else {
         alert(data.message || 'An error occurred');
       }
@@ -49,7 +51,6 @@ const Login = () => {
     <>
       <div className='login-container'>
         <Header />
-
         <div className='form-section'>
           <h1 className='title'>
             {isSignUp ? 'Create an account' : 'Welcome back'}
@@ -76,7 +77,6 @@ const Login = () => {
               />
             </div>
             <button type='submit'>{isSignUp ? 'Sign Up' : 'Sign In'}</button>
-
             <div className='option'>
               <p>
                 {isSignUp
