@@ -11,19 +11,38 @@ const Login = () => {
   };
 
   // Form submission handler
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     // Get form values
     const email = event.target.email.value;
     const password = event.target.password.value;
 
-    // Handle form submission logic here
-    console.log('Email:', email);
-    console.log('Password:', password);
+    // Determine the URL and request options based on the form type
+    const url = isSignUp ? '/api/users' : '/api/users/login';
+    const method = 'POST';
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+    const body = JSON.stringify({ email, password });
 
-    // For now, just showing a basic alert
-    alert('Form submitted!');
+    try {
+      const response = await fetch(url, { method, headers, body });
+      const data = await response.json();
+
+      if (response.ok) {
+        alert(
+          data.message ||
+            (isSignUp ? 'Sign up successful!' : 'Sign in successful!')
+        );
+        // Optionally, handle successful login/signup, e.g., redirect to another page
+      } else {
+        alert(data.message || 'An error occurred');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred');
+    }
   };
 
   return (
