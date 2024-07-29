@@ -8,14 +8,18 @@ import './styles/style.css';
 const Header = () => {
   return (
     <div className='header'>
-      <div className='logo'>
-        <Link to='/'>
-          <span className='logo-ink'>ARC</span>VAN
-        </Link>
+      <div className='left-group'>
+        <div className='logo'>
+          <Link to='/'>
+            <span className='logo-ink'>ARC</span>VAN
+          </Link>
+        </div>
+        <SearchBox />
       </div>
-      <SearchBox />
-      <Account />
-      <Cart />
+      <div className='right-group'>
+        <Account />
+        <Cart />
+      </div>
     </div>
   );
 };

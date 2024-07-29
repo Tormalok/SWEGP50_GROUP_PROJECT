@@ -1,17 +1,4 @@
-/* Poppins Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-/* Open Sans Font */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-/* 
-Header Component
-*/
+/* Header Component */
 .header {
   background-color: #2d83f6;
   font-family: 'Poppins', sans-serif;
@@ -31,6 +18,61 @@ Header Component
   z-index: 1000;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Left group (logo and search box) */
+.left-group {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  width: 100%;
+  max-width: 600px;
+  margin-right: 50px;
+  flex: 1;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 0 10px;
+  font-size: 16px;
+  height: 20px;
+  line-height: 20px;
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  color: #757575;
+}
+
+.search-icon {
+  color: #757575;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* Hover effect */
+.search-icon:hover {
+  color: #2d83f6;
+}
+
+/* Clicked state */
+.search-icon.clicked {
+  color: #1d6dbd;
+}
+
+/* Right group (account and cart) */
+.right-group {
+  display: flex;
+  align-items: center;
 }
 
 /* 
@@ -64,50 +106,6 @@ Logo Component
   color: #ffcc33;
 }
 
-/*
-Search-box Component
-*/
-.search-box {
-  display: flex;
-  align-items: center;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-  padding: 10px;
-  width: 100%;
-  max-width: 600px;
-  margin-right: 10px;
-}
-
-.search-box input {
-  border: none;
-  outline: none;
-  flex: 1;
-  padding: 0 10px;
-  font-size: 16px;
-  height: 20px;
-  line-height: 20px;
-  font-family: 'Open Sans', sans-serif;
-  font-style: normal;
-  color: #757575;
-}
-
-.search-icon {
-  color: #757575;
-  cursor: pointer;
-  margin-left: 10px;
-}
-
-/* Hover effect */
-.search-icon:hover {
-  color: #2d83f6;
-}
-
-/* Clicked state */
-.search-icon.clicked {
-  color: #1d6dbd;
-}
-
 /* 
 Account component
 */
@@ -116,6 +114,12 @@ Account component
   align-items: center;
   cursor: pointer;
   color: #fff;
+  margin-left: 20px;
+  transition: color 0.3s ease;
+}
+
+.account-container:hover {
+  color: #d3d3d3;
 }
 
 .account-container .material-icons {
@@ -123,11 +127,11 @@ Account component
 }
 
 .account-container .arrow-icon {
-  opacity: 0;
+  opacity: 0.2;
   transition: opacity 0.3s ease;
 }
 
-.account-container .arrow-icon.visible {
+.account-container:hover .arrow-icon {
   opacity: 1;
 }
 
@@ -139,7 +143,12 @@ Cart component
   align-items: center;
   cursor: pointer;
   color: #fff;
-  margin-left: 20px; /* Adjust this margin as needed */
+  margin-left: 20px;
+  transition: color 0.3s ease;
+}
+
+.cart-container:hover {
+  color: #d3d3d3;
 }
 
 .cart-container .material-icons {
