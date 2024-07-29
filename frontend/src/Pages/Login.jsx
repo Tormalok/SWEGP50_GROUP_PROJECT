@@ -51,7 +51,9 @@ const Login = () => {
         <Header />
 
         <div className='form-section'>
-          <h1 className='title'>{isSignUp ? 'Sign up' : 'Sign in'}</h1>
+          <h1 className='title'>
+            {isSignUp ? 'Create an account' : 'Welcome back'}
+          </h1>
           <form className='form-main' onSubmit={handleSubmit}>
             <div>
               <input
