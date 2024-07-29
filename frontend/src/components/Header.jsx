@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SearchBox from './SearchBox';
+import Account from './Account';
+import Cart from './Cart';
 import './styles/style.css';
 
 const Header = () => {
@@ -12,6 +14,8 @@ const Header = () => {
         </Link>
       </div>
       <SearchBox />
+      <Account />
+      <Cart />
     </div>
   );
 };
