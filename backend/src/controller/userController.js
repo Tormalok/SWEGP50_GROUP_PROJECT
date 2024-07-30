@@ -255,4 +255,104 @@ const deleteUser = async (req, res) => {
   }
 };
 
-export { getUsers, getUser, loginUser, createUser, updateUser, deleteUser };
+// @desc Get the current user
+// @route GET '/api/users/me'
+// @access Private
+const getCurrentUser = async (req, res) => {
+  try {
+    const userId = req.user.userId;
+
+    // Finding user from the database
+    const user = await User.findById(userId);
+
+    if (user) {
+      return res.status(200).json(user);
+    }
+
+    return res.status(404).json({ message: 'User not found' });
+  } catch (error) {
+    // For server side
+    console.error('Error fetching user', error);
+
+    // For client side
+    return res.status(500).json({ message: 'Error fetching user' });
+  }
+};
+
+// @desc Update the current user
+// @route PUT '/api/users/me'
+// @access Private
+const updateCurrentUser = async (req, res) => {
+  const userId = req.user.userId;
+
+  try {
+    const {
+      email,
+      password,
+      firstName = '',
+      lastName = '',
+      phoneNumber = '',
+      address: {
+        street = '',
+        city = '',
+        region = '',
+        postalCode = '',
+        country = '',
+      } = {},
+      dateOfBirth = null,
+    } = req.body;
+
+    // Finding user from the database
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Updating fields
+    if (email) user.email = email;
+    if (password) {
+      // Hashing updated password provided
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(password, salt);
+
+      user.password = hashedPassword;
+    }
+    if (firstName) user.firstName = firstName;
+    if (lastName) user.lastName = lastName;
+    if (phoneNumber) user.phoneNumber = phoneNumber;
+    if (street || city || region || postalCode || country) {
+      user.address = {
+        street,
+        city,
+        region,
+        postalCode,
+        country,
+      };
+    }
+    if (dateOfBirth) user.dateOfBirth = dateOfBirth;
+
+    // Updating user data to database
+    const updatedUser = await user.save();
+
+    res.status(200).json(updatedUser);
+  } catch (error) {
+    // For server side
+    console.error('Error updating user', error);
+
+    // For client side
+    res.status(500).json({ message: 'Error updating user' });
+  }
+};
+
+// Export all functions including the new ones
+export {
+  getUsers,
+  getUser,
+  loginUser,
+  createUser,
+  updateUser,
+  deleteUser,
+  getCurrentUser,
+  updateCurrentUser,
+};

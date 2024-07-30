@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import './styles/profile.css';
@@ -7,24 +7,69 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState({
-    email: 'user@example.com',
-    firstName: 'John',
-    lastName: 'Doe',
-    street: '123 Main St',
-    city: 'Anytown',
-    region: 'Anystate',
-    postalCode: '12345',
-    country: 'USA',
-    phoneNumber: '123-456-7890',
-    dateOfBirth: '1990-01-01',
+    email: '',
+    firstName: '',
+    lastName: '',
+    street: '',
+    city: '',
+    region: '',
+    postalCode: '',
+    country: '',
+    phoneNumber: '',
+    dateOfBirth: '',
   });
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        const response = await fetch('/api/users/me', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (response.ok) {
+          const data = await response.json();
+          setProfile(data);
+        } else {
+          console.error('Error fetching profile');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+
+    fetchProfile();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProfile({ ...profile, [name]: value });
   };
 
-  const handleEdit = () => {
+  const handleEdit = async () => {
+    if (isEditing) {
+      try {
+        const token = localStorage.getItem('token');
+        const response = await fetch('/api/users/me', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(profile),
+        });
+        if (response.ok) {
+          const data = await response.json();
+          setProfile(data);
+          alert('Profile updated successfully!');
+        } else {
+          console.error('Error updating profile');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    }
     setIsEditing(!isEditing);
   };
 
@@ -156,6 +201,15 @@ const Profile = () => {
                   />
                 </label>
               </div>
+              {isEditing && (
+                <button
+                  type='button'
+                  onClick={handleEdit}
+                  className='profile-save-button'
+                >
+                  Save Changes
+                </button>
+              )}
             </form>
           </div>
         </div>

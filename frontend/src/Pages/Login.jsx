@@ -34,10 +34,16 @@ const Login = () => {
       const response = await fetch(url, { method, headers, body });
       const data = await response.json();
       if (response.ok) {
+        // Store the token in localStorage
+        if (data.token) {
+          localStorage.setItem('token', data.token);
+        }
         alert(
           data.message ||
             (isSignUp ? 'Sign up successful!' : 'Sign in successful!')
         );
+        // Redirect to profile page or home page after successful login
+        window.location.href = '/profile';
       } else {
         alert(data.message || 'An error occurred');
       }
