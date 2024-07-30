@@ -25,7 +25,7 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    const pathsWithoutNav = ['/login', '/signup'];
+    const pathsWithoutNav = ['/login', '/signup', '/profile'];
     if (pathsWithoutNav.includes(location.pathname)) {
       setShowNav(false);
     } else {
@@ -51,7 +51,8 @@ const Header = () => {
       </div>
       {showNav &&
         location.pathname !== '/login' &&
-        location.pathname !== '/signup' && (
+        location.pathname !== '/signup' &&
+        location.pathname !== '/profile' && (
           <nav className={`nav-bar ${showNav ? '' : 'hidden'}`}>
             <ul className='nav-links'>
               <li>

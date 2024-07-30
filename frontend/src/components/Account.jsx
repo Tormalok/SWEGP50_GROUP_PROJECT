@@ -41,6 +41,7 @@ const Account = () => {
       />
       {isDropdownOpen && (
         <div className='account-dropdown'>
+          <Link to='/profile'>Profile</Link>
           <Link to='/login'>Sign In</Link>
           <Link to='/login?signup=true'>Sign Up</Link>
         </div>
