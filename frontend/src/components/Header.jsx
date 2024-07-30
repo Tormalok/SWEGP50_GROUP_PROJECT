@@ -1,14 +1,41 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import SearchBox from './SearchBox';
 import Account from './Account';
 import Cart from './Cart';
 import './styles/style.css';
 
 const Header = () => {
+  const [showNav, setShowNav] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 70) {
+        setShowNav(false);
+      } else {
+        setShowNav(true);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const pathsWithoutNav = ['/login', '/signup'];
+    if (pathsWithoutNav.includes(location.pathname)) {
+      setShowNav(false);
+    } else {
+      setShowNav(window.scrollY <= 70);
+    }
+  }, [location.pathname]);
+
   return (
     <>
-      <div className='header'>
+      <div className={`header ${showNav ? '' : 'shadow'}`}>
         <div className='left-group'>
           <div className='logo'>
             <Link to='/'>
@@ -22,28 +49,32 @@ const Header = () => {
           <Cart />
         </div>
       </div>
-      <nav className='nav-bar'>
-        <ul className='nav-links'>
-          <li>
-            <Link to='/categories'>Categories</Link>
-          </li>
-          <li>
-            <Link to='/brands'>Brands</Link>
-          </li>
-          <li>
-            <Link to='/services'>Services</Link>
-          </li>
-          <li>
-            <Link to='/deals'>Deals</Link>
-          </li>
-          <li>
-            <Link to='/about'>About Us</Link>
-          </li>
-          <li>
-            <Link to='/contact'>Contact</Link>
-          </li>
-        </ul>
-      </nav>
+      {showNav &&
+        location.pathname !== '/login' &&
+        location.pathname !== '/signup' && (
+          <nav className={`nav-bar ${showNav ? '' : 'hidden'}`}>
+            <ul className='nav-links'>
+              <li>
+                <Link to='/categories'>Categories</Link>
+              </li>
+              <li>
+                <Link to='/brands'>Brands</Link>
+              </li>
+              <li>
+                <Link to='/services'>Services</Link>
+              </li>
+              <li>
+                <Link to='/deals'>Deals</Link>
+              </li>
+              <li>
+                <Link to='/about'>About Us</Link>
+              </li>
+              <li>
+                <Link to='/contact'>Contact</Link>
+              </li>
+            </ul>
+          </nav>
+        )}
     </>
   );
 };
