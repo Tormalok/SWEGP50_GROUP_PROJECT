@@ -35,9 +35,12 @@ const Header = () => {
 
   const hideSearchBoxPaths = ['/login', '/signup', '/profile'];
 
+  const showShadow =
+    !showNav || ['/login', '/signup', '/profile'].includes(location.pathname);
+
   return (
     <>
-      <div className={`header ${showNav ? '' : 'shadow'}`}>
+      <div className={`header ${showShadow ? 'shadow' : ''}`}>
         <div className='left-group'>
           <div className='logo'>
             <Link to='/'>
@@ -52,7 +55,7 @@ const Header = () => {
         </div>
       </div>
       {showNav && !hideSearchBoxPaths.includes(location.pathname) && (
-        <nav className={`nav-bar ${showNav ? '' : 'hidden'}`}>
+        <nav className='nav-bar'>
           <ul className='nav-links'>
             <li>
               <Link to='/categories'>Categories</Link>
