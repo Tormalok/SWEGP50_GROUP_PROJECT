@@ -33,6 +33,8 @@ const Header = () => {
     }
   }, [location.pathname]);
 
+  const hideSearchBoxPaths = ['/login', '/signup', '/profile'];
+
   return (
     <>
       <div className={`header ${showNav ? '' : 'shadow'}`}>
@@ -42,40 +44,37 @@ const Header = () => {
               <span className='logo-ink'>ARC</span>VAN
             </Link>
           </div>
-          <SearchBox />
+          {!hideSearchBoxPaths.includes(location.pathname) && <SearchBox />}
         </div>
         <div className='right-group'>
           <Account />
           <Cart />
         </div>
       </div>
-      {showNav &&
-        location.pathname !== '/login' &&
-        location.pathname !== '/signup' &&
-        location.pathname !== '/profile' && (
-          <nav className={`nav-bar ${showNav ? '' : 'hidden'}`}>
-            <ul className='nav-links'>
-              <li>
-                <Link to='/categories'>Categories</Link>
-              </li>
-              <li>
-                <Link to='/brands'>Brands</Link>
-              </li>
-              <li>
-                <Link to='/services'>Services</Link>
-              </li>
-              <li>
-                <Link to='/deals'>Deals</Link>
-              </li>
-              <li>
-                <Link to='/about'>About Us</Link>
-              </li>
-              <li>
-                <Link to='/contact'>Contact</Link>
-              </li>
-            </ul>
-          </nav>
-        )}
+      {showNav && !hideSearchBoxPaths.includes(location.pathname) && (
+        <nav className={`nav-bar ${showNav ? '' : 'hidden'}`}>
+          <ul className='nav-links'>
+            <li>
+              <Link to='/categories'>Categories</Link>
+            </li>
+            <li>
+              <Link to='/brands'>Brands</Link>
+            </li>
+            <li>
+              <Link to='/services'>Services</Link>
+            </li>
+            <li>
+              <Link to='/deals'>Deals</Link>
+            </li>
+            <li>
+              <Link to='/about'>About Us</Link>
+            </li>
+            <li>
+              <Link to='/contact'>Contact</Link>
+            </li>
+          </ul>
+        </nav>
+      )}
     </>
   );
 };
