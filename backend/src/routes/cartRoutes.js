@@ -6,10 +6,20 @@ import {
   updateCart,
   deleteCart,
 } from '../controller/cartController.js';
+import authenticateToken from '../middleware/authMiddleware.js';
+
 const router = express.Router();
 
-router.route('/').get(getCarts).post(createCart);
+// Routes for cart management
+router
+  .route('/')
+  .get(authenticateToken, getCarts)
+  .post(authenticateToken, createCart);
 
-router.route('/:cartId').get(getCart).put(updateCart).delete(deleteCart);
+router
+  .route('/:cartId')
+  .get(authenticateToken, getCart)
+  .put(authenticateToken, updateCart)
+  .delete(authenticateToken, deleteCart);
 
 export default router;

@@ -6,14 +6,17 @@ import {
   updateProduct,
   deleteProduct,
 } from '../controller/productController.js';
+import authenticateToken from '../middleware/authMiddleware.js';
+
 const router = express.Router();
 
-router.route('/').get(getProducts).post(createProduct);
+// Routes for product management
+router.route('/').get(getProducts).post(authenticateToken, createProduct);
 
 router
   .route('/:productId')
   .get(getProduct)
-  .put(updateProduct)
-  .delete(deleteProduct);
+  .put(authenticateToken, updateProduct)
+  .delete(authenticateToken, deleteProduct);
 
 export default router;

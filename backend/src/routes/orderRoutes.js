@@ -6,10 +6,20 @@ import {
   updateOrder,
   deleteOrder,
 } from '../controller/orderController.js';
+import authenticateToken from '../middleware/authMiddleware.js';
+
 const router = express.Router();
 
-router.route('/').get(getOrders).post(createOrder);
+// Routes for order management
+router
+  .route('/')
+  .get(authenticateToken, getOrders)
+  .post(authenticateToken, createOrder);
 
-router.route('/:orderId').get(getOrder).put(updateOrder).delete(deleteOrder);
+router
+  .route('/:orderId')
+  .get(authenticateToken, getOrder)
+  .put(authenticateToken, updateOrder)
+  .delete(authenticateToken, deleteOrder);
 
 export default router;

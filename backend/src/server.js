@@ -5,6 +5,7 @@ import productRoutes from './routes/productRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import cartRoutes from './routes/cartRoutes.js';
 import connectDB from './config/db.js';
+
 const port = process.env.PORT || 5000;
 
 // Connecting to database
@@ -16,7 +17,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-//  Routes
+// Routes
 app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
@@ -24,5 +25,5 @@ app.use('/api/carts', cartRoutes);
 
 // Server listening
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`Server running on port ${port}`.cyan.bold);
 });
