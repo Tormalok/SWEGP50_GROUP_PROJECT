@@ -1,5 +1,7 @@
 # E-commerce API
 
+#### AUTHOR: HENRY AMPONSAH
+
 This is a RESTful API for an e-commerce application. It handles user authentication, product management, order management, and cart management.
 
 ## Table of Contents
