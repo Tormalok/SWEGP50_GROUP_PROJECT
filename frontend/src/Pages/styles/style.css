@@ -129,6 +129,21 @@ button:hover {
   margin-bottom: 70px;
 }
 
+.logout-button {
+  background: none;
+  border: none;
+  color: #2d83f6;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.logout-button:hover {
+  color: #1d6dbd;
+  text-decoration: underline;
+}
+
 /* Home Page */
 .homepage-container {
   background-color: #f4f7fc;
